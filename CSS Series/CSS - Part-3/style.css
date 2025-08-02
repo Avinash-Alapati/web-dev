@@ -1,0 +1,63 @@
+/* div{
+    height: 200px;
+    width: 500px;
+    background-color: pink;
+    /* border-width: 5px;
+    border-style: solid;
+    border-color: chocolate; */
+    /* border: 5px solid chocolate; */
+    /* border-left: 4px dotted yellow ; */
+    /* border-radius: 15px;
+    padding-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px; 
+}
+
+button{
+    border: solid 2px blueviolet; 
+    border-radius: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+     
+
+    padding: 25px; - All 4 Sides
+    padding: 10px 5px; - Top & Bottom | Left & Right
+    padding: 1px 2px 3px; - Top | Left & Right | Bottom 
+    padding: 1px 2px 3px 4px; - Clockwise (Top,Right,Bottom,Left)
+
+}
+
+h1{
+    /* border: 2px dotted grey; */
+    /* border-radius: 50%; */
+    /* margin: 0; - Removes default Margin
+} */
+
+
+
+/* div{
+    height: 200px;
+    width: 200px;
+    background-color: greenyellow;
+    border: 2px solid black;
+    margin: 5px;
+    display: inline-block;
+} */
+
+div{
+    height: 100px;
+    width: 100px;
+    background-color: limegreen;
+    /* transition: 1s; */
+    margin: 0 auto;
+    margin-top: 20px;
+    transition: margin-top 2s ease-in 0.3s;
+    transform: scale(2);
+}
+
+div:hover{
+    background-color: aquamarine;
+    margin-top: 400px;
+    transform: rotate(45deg);
+}

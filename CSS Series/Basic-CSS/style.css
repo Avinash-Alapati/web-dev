@@ -1,0 +1,14 @@
+  h1{
+    color: burlywood;
+    background-color: rgb(207, 25, 25);
+  }
+
+  p{
+    color: rgb(16, 97, 97);
+    background-color: rgb(219, 188, 64);
+  }
+
+  button{
+    color: gold;
+    background-color: blueviolet;
+  }

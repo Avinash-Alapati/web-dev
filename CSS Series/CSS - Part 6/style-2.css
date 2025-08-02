@@ -1,0 +1,44 @@
+h1{
+    background-color: greenyellow;
+    border: 2px solid brown;
+    width: 150px;
+    text-align: center;
+}
+
+@media (width : 400px){
+    h1{
+        background-color: cadetblue;
+        color: #ffffff;
+        font-size: 20px;
+    }
+    div{
+        height: 100px;
+        width: 100px;
+        background-color: chocolate;
+    }
+}
+
+@media (min-width : 401px){
+    h1{
+        background-color: rgb(240, 147, 8);
+    }
+}
+
+@media (max-width : 400){
+    h1{
+        background-color: crimson;
+    }
+}
+
+@media (min-width : 200px) and (max-width : 300px){
+    h1{
+        background-color: magenta;
+    }
+}
+
+@media (orientation: landscape){
+    h1{
+        color: crimson;
+        font-size: 20px;
+    }
+}

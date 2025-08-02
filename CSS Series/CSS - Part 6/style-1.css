@@ -1,0 +1,54 @@
+.box{
+    height: 100px;
+    width: 300px;
+    background-color: chocolate;
+    /* animation-name: fontAnimation , colorAnimate , widthAnimate;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; */
+
+    animation: fontAnimation 2s ease-in-out 2s 3 normal;
+}
+
+@keyframes fontAnimation{
+    0%{
+        font-size : 20px ;
+        color: chartreuse;
+        
+    }
+
+    50% {
+        font-size : 40px;
+        color: aqua;
+        border-radius: 50%;
+        text-align: center ;
+        align-items: center;
+    }
+
+    100%{
+        font-size: 75px;
+        color: blueviolet;
+        border-radius: 0%;
+        text-shadow: 25px;
+    }
+}
+
+@keyframes colorAnimate{
+    from{
+        color: chartreuse;
+    }
+    to{
+        color: aqua;
+    }
+}
+
+@keyframes widthAnimate{
+    from{
+        width: 75px;
+    }
+    to{
+        width: 225px;
+    }
+}
