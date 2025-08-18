@@ -93,4 +93,65 @@ console.log(primary.concat(secondary)); // It will Merge 2 Arrays
 console.log(secondary.reverse());  // it will reverse the array
 
 
+// Sorting
 console.log(primary.sort());
+
+// array refrencing
+
+console.log("name" == "name"); // true - comparing with value
+console.log([1] == [1]); // False
+console.log([1] == [1]); // False - its comparing with array adress not array variable
+console.log([] == []); // False
+
+// Example 
+
+let Array = ["Avinash", "Sai" , "Ashok"];
+
+let arrCopy = Array; // Ref Variable arrCopy pointing to the arrayvalues of ref var Array
+
+arrCopy.push("Mahi"); // Operations made in arrCopy will also be changed on Arrar coz the arrCopy has pointed to the values of Array in memory
+
+console.log(arrCopy);
+console.log(Array);
+
+console.log(Array == arrCopy);  // True - because both ref var are pointing to same array
+
+// Const Array
+
+const arr = [12,24,36,48]; // If declared const we cant update/change values further
+
+// arr.push(25); //Throw an error coz we cant change values in const
+
+arr.pop(); // even Const we can do some operations on it
+console.log(arr);
+
+// What we cant do if const == we cant add / create the array in existing array
+
+// Example
+
+arr = Array; // Array - which we have created earlier
+
+// Nested Arrays - MultiDimensional Arrays!
+
+// Array inside an array
+
+let nestedArr = [[2,6] , [0,2] , [1,0]];
+
+console.log(nestedArr);
+
+console.log(nestedArr[0]); // it will gives our inside array basing on index value
+
+// Very Basic Tic-Tac-Toe game 
+
+// [[X , Null , O] ,
+// [Null , X , Null] , 
+// [O , Null , X]]
+
+// we are creating an nested array to replicate the same pattern above
+
+let game = [["X" , "Null" , "O"] , ["Null" , "Null" , "Null"] , ["O" , "Null" , "X"]];
+
+console.log(game);
+
+// Continue the game using 
+// game[rowNum][colNum] = 'X' or 'O' 
