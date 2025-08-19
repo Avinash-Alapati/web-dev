@@ -95,4 +95,51 @@ while(value <= 5){
     value++;
 }
 
-console.log("We used break at 3")
+console.log("We used break at 3");
+
+
+// Loops with Arrays
+
+let fruits = ["Avacado", "Banana" , "Cherry" , "Dragon Fruit"];
+
+for(let i = 0; i < fruits.length;i++){
+    console.log(i , fruits[i]);
+}
+
+// Loops with Nested Arrays
+
+let heros = [["Spiderman" , "Thor" , "IronMan"] , ["Ben10" , "Power Rangers" , "RollNo-21"] , ["Naruto" , "Zenitsu" , "Eren"]];
+
+for(let i = 0; i < heros.length; i++){
+    console.log(`List of Heros Set# ${i}`);
+    for(let j = 0; j < heros[i].length;j++){
+        console.log(heros[i][j]);
+    }
+}
+
+// For of Loops
+
+let names = ["Ashok" , "Avinash" , "Mahi" , "Sai"];
+
+for(naam of names){
+    console.log(naam);
+}
+
+// for of loops in string
+
+for(char of "Avinash Alapati"){ // iterates to individual character at a time
+    console.log(char);
+}
+
+
+// Nested for of loop 
+
+let hero = [["Spiderman" , "Thor" , "IronMan"] , ["Ben10" , "Power Rangers" , "RollNo-21"] , ["Naruto" , "Zenitsu" , "Eren"]];
+
+for(list of hero){
+    for(names of list ){
+        console.log(names)
+    }
+}
+
+ 
