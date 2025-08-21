@@ -146,4 +146,47 @@ console.log(studentDetails[2]);
 console.log(studentDetails[3]);
 console.log(studentDetails[4]);
 
-// we can add update the values in it by using the previous  methods
+// we can add update the values in it by using the previous methods
+
+// -----------------------------------------
+
+// Math Object
+
+console.log(Math);
+
+console.log(Math.E);
+
+console.log(Math.PI);
+
+console.log(Math.abs(-26)); // Removes the Signs and give Plain number
+
+console.log(Math.pow(2 , 4)); // Power a to the power of b
+
+console.log(Math.floor(5.2748075048972)); // Round off to the smallest integer
+
+console.log(Math.floor(-5.5)); // its returns -6 coz it is smaller than -5.5
+
+console.log(Math.ceil(5.675)); // return 6 - Round off to the Largest integer
+
+// Math.random always gives a random number btw 0 & 1
+console.log(Math.random());
+console.log(Math.random());
+console.log(Math.random());
+console.log(Math.random());
+
+// Random Integer from 1 - 10
+
+let num = Math.random();
+
+num = num * 10;
+
+console.log(Math.floor(num));
+
+num += 1;
+
+console.log(num);
+
+// Random number
+console.log( Math.floor ( Math.random() * 10) + 1);
+
+// Guessing Game
