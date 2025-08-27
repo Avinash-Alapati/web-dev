@@ -7,6 +7,8 @@
 
 // console.log(`Your total price is : ${pencilPrice + eraserPrice}`) // Template Literals
 
+//----------------------------------------------------------------------------
+
 
 // Conditional Statements
 
@@ -24,6 +26,9 @@
 // else{
 //     console.log("Not Aproved! , You cannot Vote");
 // }
+
+
+// ------------------------------------------------------------------------------------
 
 // Else-if
 
@@ -46,6 +51,8 @@ let totalMarks = 26;
 // else if(totalMarks <= 35){
 //     console.log("You Failed Looserr!!");
 // }
+
+// ---------------------------------------------------------------------------------
 
 //Alert & Prompt
 

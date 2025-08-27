@@ -13,6 +13,8 @@ console.log(str.indexOf("Love")); // 1  - gives where it started occuring
 console.log(str.indexOf("J")); // -1 Not found
 console.log(str.indexOf("o")); // 2 - it will return the 1st index where it found the given arg
 
+// --------------------------------------------------------------------------------
+
 // Method Chaining
 // Using multiple methods sametime - order Left-Right
 
@@ -21,6 +23,7 @@ let newSay = say.toUpperCase().trim();
 
 console.log(newSay);
 
+// --------------------------------------------------------------------------------------
 
 // Slicing
 
@@ -34,6 +37,7 @@ console.log(newStr.slice(7 , newStr.length));
 
 console.log(newStr.slice(-6)) // Coding // newStr.slice(-5) = newStr.slice(newStr.length - 5)
 
+// ----------------------------------------------------------------------------------
 
 // Replace
 
@@ -47,6 +51,8 @@ console.log(newWord.replace("o" , "X"));
 let fruit = "Apple";
 
 console.log(fruit.repeat(3))
+
+// -------------------------------------------------------------------------------------
 
 // Arrays - Collection of data 
 
@@ -75,6 +81,8 @@ console.log(names.pop(), names);
 console.log(names.unshift("Rai Vamsi") , names);
 console.log(names.shift() , names);
 
+// -----------------------------------------------------------------------------------
+
 // indexOf & Includes
 
 let colors = ["Red" , "Yellow" , "Green"];
@@ -84,6 +92,8 @@ console.log(colors.indexOf("Pinkk"));
 console.log(colors.includes("Red"));
 console.log(colors.includes("Pinkkk"));
 
+// ----------------------------------------------------------------------------------
+
 // Concat & reverse
 
 let primary =  ["Sai" , "Mahi", "Ashok" , "Avinash"] ;
@@ -92,6 +102,7 @@ let secondary = ["Rai Vamsi" ,"Siva Ram", "Madhu Pavan" , "Manikanta"]
 console.log(primary.concat(secondary)); // It will Merge 2 Arrays
 console.log(secondary.reverse());  // it will reverse the array
 
+// ----------------------------------------------------------------------------------
 
 // Sorting
 console.log(primary.sort());
@@ -130,6 +141,8 @@ console.log(arr);
 // Example
 
 arr = Array; // Array - which we have created earlier
+
+// ------------------------------------------------------------------------------------------
 
 // Nested Arrays - MultiDimensional Arrays!
 

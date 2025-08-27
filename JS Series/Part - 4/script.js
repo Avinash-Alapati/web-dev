@@ -19,6 +19,8 @@ const student = {
 
 console.log(student);
 
+// -----------------------------------------------------------------------------------
+
 
 // Thread / Twitter Post 
 
@@ -69,6 +71,8 @@ delete details.marks; // Delete the required key-value pair.
 
 console.log(details);
 
+// ---------------------------------------------------------------------------------
+
 // Nested Object Literals
 
 let studentName = {
@@ -100,6 +104,8 @@ let studentName = {
         batch : "2027"
     }
 }
+
+// ---------------------------------------------------------------------------------
 
 // Array of objects
 
@@ -148,7 +154,7 @@ console.log(studentDetails[4]);
 
 // we can add update the values in it by using the previous methods
 
-// -----------------------------------------
+// -----------------------------------------------------------------------------------
 
 // Math Object
 
@@ -174,6 +180,8 @@ console.log(Math.random());
 console.log(Math.random());
 console.log(Math.random());
 
+// ------------------------------------------------------------------------------------
+
 // Random Integer from 1 - 10
 
 let num = Math.random();
@@ -189,4 +197,3 @@ console.log(num);
 // Random number
 console.log( Math.floor ( Math.random() * 10) + 1);
 
-// Guessing Game

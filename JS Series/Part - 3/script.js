@@ -25,6 +25,8 @@ for(let i = 0; i < 15 ;i++){
     }
 }
 
+// --------------------------------------------------------------------------------------
+
 // Infinite Loop will occur if ending condition is incorrect
 
 // for(let i = 0; i >= 1; i++){
@@ -32,6 +34,8 @@ for(let i = 0; i < 15 ;i++){
 // }
 
 // Dont Run the above comment code -- if you are willing to run be ready to pay for it
+
+//--------------------------------------------------------------------------------------
 
 // Multiplication Table
 
@@ -68,6 +72,8 @@ while(i <= 5){
     i++;
 }
 
+// ------------------------------------------------------------------------------------
+
 //  guess favMovie - type quit to exit
 
 let favMovie = "Jersy";
@@ -81,6 +87,8 @@ let favMovie = "Jersy";
 // if(userInput == favMovie){
 //     console.log("You're Correct Buddy! ");
 // }
+
+// ------------------------------------------------------------------------------------
 
 // Break Keyword
 
@@ -96,6 +104,8 @@ while(value <= 5){
 }
 
 console.log("We used break at 3");
+
+// -----------------------------------------------------------------------------------
 
 
 // Loops with Arrays
