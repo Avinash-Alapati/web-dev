@@ -41,3 +41,98 @@ console.log("Hello2");
 console.log("Hello2");
 console.log("Hello2");
 
+// ---------------------------------------------------------------------------
+
+// Miscellaneous Topics
+
+// Arrow Functions
+
+const sum = (a , b) => {
+    console.log(a+b);
+};
+
+console.log(sum(3,5));
+
+const cube = (n) => {
+    return n*n*n;
+};
+
+let c = cube(2);
+console.log(c);
+
+const power = (a , b) => {
+    return a**b;
+}
+
+console.log(power(2,3));
+
+// Implcit Return in Arrow functions
+
+const func = (a,b) => a**b;
+
+// ------------------------------------------------------------------------------
+// Set TimeOut Functions
+
+// setTimeout(function , timeout)  // Function == callback
+
+// Callback is a function which goes as an argument in another function
+
+// Timeout Takes argument in MilliSeconds // 1s == 1000ms
+
+// It exedutes only one time
+
+console.log("Heyy There!");
+
+setTimeout(() => {
+    console.log("Avinash Alapati");
+} , 4000);
+
+console.log("Welcome To");
+
+// ----------------------------------------------------------------------------
+
+// SetInterval
+
+// SetInterval takes two arguments i.e - function , timeout / Interval
+
+// It executes Continuously after the interval
+
+// setInterval(() => {
+//     console.log("Avinash Alapati");
+// } , 2000);
+
+// let id = setInterval(() => {
+//     console.log("Avinash Alapati");
+// } , 2000);
+
+// console.log(id);
+
+// let id2 = setInterval(() => {
+//     console.log("Hello World!");
+// } , 3000);
+
+// console.log(id2);
+
+// but how to break it??
+
+// every setInterval has its id wecan use that id to stop it executing multiple times by using clearInterval;
+
+// clearInterval(id); // This will stop execution of Avinash Alapati
+
+// ---------------------------------------------------------------------------------
+
+// This Keyword with Arrow Functions
+
+// Usecase of This keyword will be different in different in functions and arrow functions
+
+// in Functions this keyword's scope will depend on by which object its being called
+
+// in Arrow Functions this keywords scope is LexicalScope
+
+const student = { // This is also having global scope
+    name : "Sai",
+    age : 20,
+    prop : this, // For Student object this is Window
+}
+
+const a = 5; // Global Scope
