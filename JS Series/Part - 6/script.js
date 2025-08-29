@@ -132,7 +132,29 @@ console.log("Welcome To");
 const student = { // This is also having global scope
     name : "Sai",
     age : 20,
-    prop : this, // For Student object this is Window
+    prop : this,    // For Student object this is Window
+    getName:  function() {
+        console.log(this);
+        return this.name;   
+    } ,
+
+    getMarks : () => {
+        console.log(this); // Parent's Scope --> Window
+        return this.age;
+    } ,
+
+    getInfo : function () {
+        setTimeout(() => {
+            console.log(this)
+        } , 2000)
+    } ,
+
+    getInfo2 :  function () {
+        setTimeout(function () {
+            console.log(this)
+        } , 2000)
+    } ,
+
 }
 
 const a = 5; // Global Scope
