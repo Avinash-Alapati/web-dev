@@ -145,13 +145,13 @@ const student = { // This is also having global scope
 
     getInfo : function () {
         setTimeout(() => {
-            console.log(this)
+            console.log(this) // Student
         } , 2000)
     } ,
 
     getInfo2 :  function () {
         setTimeout(function () {
-            console.log(this)
+            console.log(this)  // Window
         } , 2000)
     } ,
 
