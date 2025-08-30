@@ -104,3 +104,74 @@ console.log([2,4,6,8].every( (el) => (el % 2 == 0)));
 console.log([1,2,3,4,5,6].some( (el) => (el % 2 == 0)));
 
 // --------------------------------------------------------------------------
+
+// Reduce -  Reduce the array to a single value
+
+// arr.reduce(reducer function within 2 variables for (accumulator , element));
+
+
+let numArr = [1,2,3,4];
+let finalVal = numArr.reduce( (res , el) => (res * el) );
+
+console.log(finalVal);
+
+// ------------------------------------------------------------------------------
+
+// Finding an max el in an array using reduce
+
+let numsArr = [1,4,2,5,6,7,2,9,2];
+
+let max = numsArr.reduce((max , element) => {
+    if (max < element){
+        return element;
+    }
+    else {
+        return max;
+    }
+});
+
+console.log(max);
+
+// ---------------------------------------------------------------------------
+
+// Default Parameters - Giving an default value to the arguments
+
+// function func (a , b = 3) {};
+
+function sum(a , b = 4){
+    return a+b;
+}
+
+sum(2);
+
+// ----------------------------------------------------------------------------------
+
+
+// Spread
+
+//  Expands an iterable into multiple values
+
+console.log(..."Avinash"); // Gives Individual letters
+
+ let val = [1,2,3,4];
+
+ console.log(Math.min(...val)); // Give the whole arrays to return min
+
+ // using in Array Literals
+
+ // we can make a copy of same array using spread
+
+ let newValArr = [...val];
+
+console.log(newValArr);
+
+//  Spread with Object Literals
+
+let data = {
+    email : "avinashalapati11@gmail.com",
+    password : "xyz"
+};
+
+let dataCopy = {...data , id : 966 , Region : "India"};
+
+console.log(dataCopy);
