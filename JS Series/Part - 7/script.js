@@ -175,3 +175,49 @@ let data = {
 let dataCopy = {...data , id : 966 , Region : "India"};
 
 console.log(dataCopy);
+
+// ---------------------------------------------------------------------------------
+
+// REST - Allows a Function to take a indefinite number of arguments and bundle them in array
+
+function sum(...args){ // arguments
+    for(let i = 0; i <args.length; i++ ){
+        console.log("You gave us : " , args[i]);
+    }
+}
+
+function min(a, b, c, d){
+    console.log(arguments); // It will return the default collection
+}
+
+function newSum(...args){
+    return args.reduce((sum , el) => sum + el)
+}
+
+// -----------------------------------------------------------------------------
+
+// De-structuring - Stores values of Arrays into Multiple Variables
+
+let names = ["Avinash" , "Mahi" , "Ashok" , "Sai"];
+
+let [winner , runnerup] = names; // it will take the first 2 indices
+
+console.log(winner,runnerup); // "Avinash" , "Mahi"
+
+// DeStructuring in Objects
+
+const student = {
+    name : "Avinash",
+    age : 18,
+    Year : "3rd", 
+    Subjects : ["Java" , "AI" , "P&S"],
+    username : "Avinash_26",
+    password : "xyz",
+    city : "Kakinada"
+};
+
+// let username = student.username;
+// let password = student.password;
+
+let {username : user , password : secret , Subjects : supply , city : location } = student; // it will search the same key with variable name , and returns the value of the key to this variable
+
