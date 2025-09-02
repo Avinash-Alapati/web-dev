@@ -27,3 +27,7 @@ body{
 #description{
     background-color: antiquewhite;
 }
+
+.newClass{
+    color: green;
+}
