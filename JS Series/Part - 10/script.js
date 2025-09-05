@@ -4,7 +4,8 @@ let div = document.querySelector('div');
 let ul = document.querySelector('ul');
 let li = document.querySelector('li');
 
-div.addEventListener("click", function () {
+div.addEventListener("click", function (event) {
+    event.stopPropagation();
     console.log("Div Was Clicked");
 });
 
