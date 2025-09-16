@@ -76,8 +76,37 @@ $
 // require() - a built-in function to include external modules that exist in seperate files
 
 
-const Math = require("./math");
+// const Math = require("./math");
 
-console.log(Math.sum (2,3));
-console.log(Math.mul (2,3));
-console.log(Math.PI);
+// console.log(Math.sum (2,3));
+// console.log(Math.mul (2,3));
+// console.log(Math.PI);
+
+
+// ----------------------------------------------------
+
+// Exporting data from another directory i.e Fruits
+
+// const info = require('./Fruits');
+
+// console.log(info);
+// console.log(info[0]);
+
+// -------------------------------------------------------------
+
+// Using Import 
+
+import { sum , Avi } from './math.js';
+
+const result = sum(2,3);
+console.log(result);
+
+let name = Avi;
+console.log(name)
+
+
+// --------------------------------------------------------
+
+import {generate} from "random-words";
+
+console.log(generate());
