@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaPage</title>
+</head>
+<body>
+    <h1>This Page Belongs to <%= username %></h1>
+    <button>Follow</button>
+    <button>Message</button>
+
+    <h2>Accounts That Follow You!!</h2>
+
+    <ul>
+         <% for (user of followers) {  %>
+        <li> <%= user %></li>
+       <% }%>
+    </ul>
+</body>
+</html>
