@@ -65,3 +65,5 @@ app.get('/home' , (req , res) => {
 _%> ‘Whitespace Slurping’ ending tag, removes all whitespace after it
 
 */
+
+// Includes - used to build subTemplates
