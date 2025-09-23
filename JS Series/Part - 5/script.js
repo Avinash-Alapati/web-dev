@@ -123,7 +123,7 @@ const sum = function(a,b){
 
 sum(26,4);
 // -----------------------------------------------------------------------------
-
+    
 // High Order Functions 
 
 // A function that does one or both
