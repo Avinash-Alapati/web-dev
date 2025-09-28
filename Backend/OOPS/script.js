@@ -121,7 +121,7 @@ console.log(String.prototype);
 
 // Class - Classes are a template for creating objects
 
-class Person{
+class Person{ // Taking this class in inhertance part at lines after 143
     constructor(name , age){
         this.name = name;
         this.age = age;
@@ -136,3 +136,103 @@ let p1 = new Person("Avinash Alapati" , 18);
 let p2 = new Person("Jalluri Venkata Sri Sai" , 20);
 let p3 = new Person("Yadagini Mahi Vardhan" , 19);
 let p4 = new Person("Bommanaboina Ashok" , 21);
+
+// -----------------------------------------------------------------------------------------
+
+// Inheritance - Inheritance is a mechanism that allows us to create new classes on the basis of already existing classes
+
+// Class - 1
+
+// class Student{
+//     constructor(name , age , branch){
+//         this.name = name;
+//         this.age = age;
+//         this.branch = branch;
+//     }
+//     talk() {
+//         console.log(`Hey i am ${this.name}`);
+//     }
+// }
+
+class Student extends Person{
+    constructor(name , age , branch){
+        super(name , age); // Parent class constructor is being called
+        this.branch = branch;
+    }
+}
+
+let stu1 = new Student("Avinash Alapatii" , 18 , 'CAI');
+let stu2 = new Student("Yadagani Mahi Vardhan" , 19 , 'CSM');
+let stu3 = new Student("Bommanaboina Ashok" , 21 , 'CAI');
+let stu4 = new Student("Jalluri Venkata Sri Sai" , 20 , 'CAI');
+
+console.log(stu1.age);
+console.log(stu1.branch);
+console.log(stu1.talk());
+
+// Class - 2
+
+// class Teacher {
+//     constructor(name , age , subject){
+//         this.name = name;
+//         this.age = age;
+//         this.subject = subject;
+//     }
+//     talk() {
+//         console.log(`Hey i am ${this.name} & i Teach ${this.subject}`);
+//     }
+// }
+
+class Teacher extends Person {
+    constructor(name , age , subject){
+        super(name , age);  // Parent class constructor is being called
+        this.subject = subject;
+    }
+}
+
+// They are some common features in class 1 & 2 so we use inheritance - extends & super
+
+// ----------------------------------------------------------------------------------------------------
+
+class Mammal {  // Base Class / Parent Class
+    constructor(name){
+        this.name = name;
+        this.type = 'warm-blooded';
+    }
+    eat() {
+        console.log("i'm eating");
+    }
+}
+
+class Dog extends Mammal{   // Child Class
+    constructor(name){
+        super(name);
+    }
+
+    bark(){
+        console.log("Bow Bow...");
+    }
+
+    eat() {
+        console.log("I'm Eating Pedigree") // Overwrites the eat func in the parent class
+    }
+}
+
+class Cat extends Mammal{ // Child Class
+    constructor(name){
+        super(name);
+    }
+
+    meow(){
+        console.log("Meowww....!!");
+    }
+}
+
+let dog1 = new Dog ("pumerian");
+console.log(dog1.name);
+console.log(dog1.type);
+console.log(dog1.eat()); // Inherited from parent 
+console.log(dog1.bark()); // inside the child class
+
+
+let cat1 = new Cat("");
