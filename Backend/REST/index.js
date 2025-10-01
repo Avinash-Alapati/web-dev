@@ -69,6 +69,26 @@ app.get("/posts/:id" , (req , res) => {
     res.render("show.ejs" , { post });
 })
 
+// To update the post 
+app.patch("/posts/:id" , (req , res) => {
+    let { id } = req.params;
+    let newContent = req.body.content;
+
+    let post = posts.find((p) => id === p.id );
+    post.content = newContent;
+    res.send("Patch Request Sucessfull");
+})
+
+// GET Update Form
+app.get("/posts/:id/edit" , (req , res) => {
+    let { id } = req.params;
+    let post = posts.find((p) => id === p.id );
+
+    res.render("edit.ejs" , { post });
+})
+
+
+
 // RootDirectory - localhost:8080/
 app.get("/" , (req , res) => {
     res.send("You have Accessed Root Directory");
