@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const port = 8080;
 const path = require('path');
+// import { v4 as uuidv4 } from 'uuid';
+const {v4 : uuidv4} = require('uuid');
+
 
 app.use(express.urlencoded({extended : true}));
 
@@ -15,25 +18,25 @@ app.use(express.static(path.join(__dirname, "public")));
 // Array or objects contains object - each object is a post
 let posts = [
     {
-        id : "1a",
+        id : uuidv4(),// ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'"1a",
         username : "Avinashh._.26",
         content : "Heyy! I'm Learning Backend Development!!"
     },
 
     {
-        id : "B105",
+        id : uuidv4(),
         username : "Rebal_Sai",
         content : "Here is our first Deployed website Link"
     },
 
     {
-        id : "3c",
+        id : uuidv4(),
         username : "Urstrulymahi",
         content : "Microsoft Azure Certified!!"
     },
 
     {
-        id : "4d",
+        id : uuidv4(),
         username : "Ashok_Ashu",
         content : "New APP Launching Soon , Stay Tuned!!"
     },
@@ -53,7 +56,8 @@ app.get("/posts/new" , (req , res) => {
 // the request submitted via new.ejs using post request catches here and append the post details to posts array
 app.post("/posts" , (req , res) => {
     let {username , content} = req.body; // destructoring of data
-    posts.push({username , content});
+    let id = uuidv4();
+    posts.push({ id , username , content});
     res.redirect("/posts");
 })
 
