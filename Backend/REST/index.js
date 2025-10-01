@@ -15,21 +15,25 @@ app.use(express.static(path.join(__dirname, "public")));
 // Array or objects contains object - each object is a post
 let posts = [
     {
+        id : "1a",
         username : "Avinashh._.26",
         content : "Heyy! I'm Learning Backend Development!!"
     },
 
     {
+        id : "B105",
         username : "Rebal_Sai",
         content : "Here is our first Deployed website Link"
     },
 
     {
+        id : "3c",
         username : "Urstrulymahi",
         content : "Microsoft Azure Certified!!"
     },
 
     {
+        id : "4d",
         username : "Ashok_Ashu",
         content : "New APP Launching Soon , Stay Tuned!!"
     },
@@ -51,6 +55,14 @@ app.post("/posts" , (req , res) => {
     let {username , content} = req.body; // destructoring of data
     posts.push({username , content});
     res.redirect("/posts");
+})
+
+// Access Each post by its id - localhost:8080/posts/B105
+app.get("/posts/:id" , (req , res) => {
+    let { id } = req.params;
+    let post = posts.find((p) => id === p.id );
+    console.log(post);
+    res.render("show.ejs" , { post });
 })
 
 // RootDirectory - localhost:8080/
