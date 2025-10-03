@@ -5,7 +5,8 @@ const path = require('path');
 // import { v4 as uuidv4 } from 'uuid';
 const {v4 : uuidv4} = require('uuid');
 
-// Method Override to use PATCH request in Client side form
+// Method override -  Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
+// Method Override to use PATCH , DELETE , PUT request in Client side form
 const methodOverride = require('method-override');
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
@@ -92,8 +93,13 @@ app.get("/posts/:id/edit" , (req , res) => {
     res.render("edit.ejs" , { post });
 });
 
-// Method override -  Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
-// Method override - converts post req' s into PATCH , PUT , DELETE;
+// Destroy Route
+
+app.delete("/posts/:id" , (req , res) => {
+    let { id } = req.params;
+    posts = posts.filter((p) => id !== p.id );
+    res.redirect("/posts");
+})
 
 
 // RootDirectory - localhost:8080/
