@@ -8,9 +8,9 @@
 <body>
     <h2>Edit Your Post</h2>
     <p>Post id : <%= post.id %></p>
-    <p>Username : <%= post.username %> </p>
-    <form method="post" action="/posts">  
-        <textarea> <%= post.content %></textarea> <br>
+    <p>Username : @<%= post.username %> </p>
+    <form method="POST" action="/posts/<%= post.id%>?_method=PATCH" > <!-- Method Overriding-->  <!-- Html deosent accept some Requests like PATCH PUT DELETE etc.... in forms it only accept GET & POST so we use method override package-->
+        <textarea rows="7" cols="20" name="content"> <%= post.content %></textarea> <br>
         <button>Submit</button>
     </form>
 </body>
