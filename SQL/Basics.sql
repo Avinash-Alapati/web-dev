@@ -71,11 +71,34 @@ VALUES
 (4291 , 19, "urstruly_mahi", "mahivardhan@gmail.com", 365, 242);
 
 SELECT Username , Email FROM Users;
-SELECT * FROM Users;
+
+-- Aggregate Functions
+-- SELECT MIN(Age) FROM Users;
+-- SELECT MAX(Age) FROM Users;
+-- SELECT COUNT(Age) FROM Users;
+-- SELECT SUM(Age) FROM Users;
+-- SELECT AVG(Age) FROM Users;
+
+-- Return the group of people in same age 
+SELECT Age, count(Id)
+FROM Users
+GROUP BY Age
+ORDER BY Age ASC;
+
+SELECT Age, max(Followers)
+FROM Users
+GROUP BY Age
+HAVING max(Followers) > 200
+ORDER BY Age ASC;
+
+-- SELECT *
+-- FROM Users
+-- LIMIT 2;
 
 SELECT * 
 FROM Users
-WHERE Age>= 16 AND Followers >= 300;
+WHERE Age>= 16 AND Followers >= 300
+ORDER BY Followers ASC;
 
 SELECT * 
 FROM Users
