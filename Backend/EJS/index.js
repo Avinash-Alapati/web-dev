@@ -24,7 +24,7 @@ app.get('/ig/:username' , (req , res) => {
     const followers = ["rebal_sai" , "urstrulymahi" , "X-Man_Ashu"];
     let { username } = req.params;
     // console.log(username);
-    res.render("insta.ejs" , {username , followers});
+    res.render("insta.ejs" , {username , followers}); // render automatically checks in views folder for the given file
 })
 
 // Example Usage - http://localhost:8080/insta/dogs
