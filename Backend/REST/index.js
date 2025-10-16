@@ -5,13 +5,14 @@ const path = require('path');
 // import { v4 as uuidv4 } from 'uuid';
 const {v4 : uuidv4} = require('uuid');
 
-// Method override -  Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
+// Method override -  Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it (HTML FORMS).
 // Method Override to use PATCH , DELETE , PUT request in Client side form
 const methodOverride = require('method-override');
+
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
-// We have to parse the data before we use
+// We have to parse the data from form before we use
 app.use(express.urlencoded({extended : true})); // it will parse the urlencoded and able to read in body
 
 // middlewares to use our views folder even from root directory
@@ -21,7 +22,7 @@ app.set("views" , path.join(__dirname, "views"));
 // to use our css file
 app.use(express.static(path.join(__dirname, "public")));
 
-// Array or objects contains object - each object is a post
+// Array of objects - each object is a post
 let posts = [
     {
         id : uuidv4(),// ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'"1a",
@@ -67,6 +68,7 @@ app.post("/posts" , (req , res) => {
     res.redirect("/posts");
 });
 
+
 // Access Each post by it's id - localhost:8080/posts/B105
 app.get("/posts/:id" , (req , res) => {
     let { id } = req.params;
@@ -93,8 +95,8 @@ app.get("/posts/:id/edit" , (req , res) => {
     res.render("edit.ejs" , { post });
 });
 
-// Destroy Route
 
+// Destroy Route
 app.delete("/posts/:id" , (req , res) => {
     let { id } = req.params;
     posts = posts.filter((p) => id !== p.id );
@@ -103,9 +105,9 @@ app.delete("/posts/:id" , (req , res) => {
 
 
 // RootDirectory - localhost:8080/
-// app.get("/" , (req , res) => {
-//     res.send("You have Accessed Root Directory");
-// })
+app.get("/" , (req , res) => {
+    res.send("You have Accessed Root Directory");
+})
 
 
 // Listening Requests on Port
