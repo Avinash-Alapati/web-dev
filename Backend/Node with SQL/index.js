@@ -5,7 +5,14 @@ require('dotenv').config();
 const { faker } = require('@faker-js/faker');
 // Require mysql to connect backend with db
 const mysql = require('mysql2');
+const express = require('express');
+const path = require('path');
 
+const app = express();
+const port = 8080;
+
+app.set("view engine", "ejs");
+app.set("views" , path.join(__dirname , "/views"))
 
 
 // A function to use the faker
@@ -71,28 +78,27 @@ const connection = mysql.createConnection({
 
 // Inserting in bulk using Faker
 
-let q = "INSERT INTO fakeusers(id, username, email, password) VALUES ?";
+// let q = "INSERT INTO fakeusers(id, username, email, password) VALUES ?";
 
-let data = [];
-for (let i = 0; i < 150; i++){
-    data.push(getRandomUser()); // 150 Fake users is being generated using faker and pushed to array
-}
+// let data = [];
+// for (let i = 0; i < 150; i++){
+//     data.push(getRandomUser()); // 150 Fake users is being generated using faker and pushed to array
+// }
 
-try {
-    connection.query(q, [data], (err , result) => { // query ,callback => ArrowFunction
-        if (err) throw err;
-        console.log(result);
-        // console.log(result.length);
-        // console.log(result[0]);
-        // console.log(result[1]);
-    }
-)
-} catch (e) {
-    console.log(e);
-}
+// try {
+//     connection.query(q, [data], (err , result) => { // query ,callback => ArrowFunction
+//         if (err) throw err;
+//         console.log(result);
+//         // console.log(result.length);
+//         // console.log(result[0]);
+//         // console.log(result[1]);
+//     }
+// )
+// } catch (e) {
+//     console.log(e);
+// }
 
-// we need to close the connection manually
-connection.end();
+// --------------------------------------------------------------------------------------
 
 // console.log(getRandomUser());
 
@@ -101,4 +107,31 @@ connection.end();
 // --> Using mysql2 Package --> Node JS
 // --> IN CLI --> mysql -u root -p
 // --> using schema.sql file --> SOURCE schema.sql
+
+
+app.listen(port , () => {
+    console.log("Server is Listening to port 8080");
+});
+
+app.get("/" ,(req,res) => {
+    let q = `SELECT COUNT(*) FROM fakeusers`;
+    try {
+        connection.query(q, (err , result) => {
+            if (err) throw err;
+            let count = result[0]["COUNT(*)"]
+            // console.log(count);
+            res.render("home.ejs" , { count });   
+        });
+    } 
+    catch (err){
+        console.log(err);
+        res.send("Some Error in DB");
+    }
+    // res.send("Hi , I'm Groot");
+});
+
+
+
+// // we need to close the connection manually
+// connection.end();
 
