@@ -109,10 +109,12 @@ const connection = mysql.createConnection({
 // --> using schema.sql file --> SOURCE schema.sql
 
 
+// Listening to APP
 app.listen(port , () => {
     console.log("Server is Listening to port 8080");
 });
 
+// Index / Home Route
 app.get("/" ,(req,res) => {
     let q = `SELECT COUNT(*) FROM fakeusers`;
     try {
@@ -130,6 +132,22 @@ app.get("/" ,(req,res) => {
     // res.send("Hi , I'm Groot");
 });
 
+// Show Route
+
+app.get('/users' , (req , res) => {
+    let q = `SELECT id, username, email FROM fakeusers`;
+    try {
+        connection.query(q , (err ,result) => {
+            if (err) throw err;
+            // console.log(result);
+            // res.send(result);
+            res.render("users.ejs" , { result })
+        })
+    } catch (err) {
+        console.log(err);
+        res.send(err);
+    }
+})
 
 
 // // we need to close the connection manually
