@@ -7,13 +7,16 @@ const { faker } = require('@faker-js/faker');
 const mysql = require('mysql2');
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override');
+const { urlencoded } = require('body-parser');
 
 const app = express();
 const port = 8080;
 
 app.set("view engine", "ejs");
-app.set("views" , path.join(__dirname , "/views"))
-
+app.set("views" , path.join(__dirname , "/views"));
+app.use(methodOverride("_method")); // to use method override
+app.use(express.urlencoded({extended : true})); // To Parse the form data
 
 // A function to use the faker
 let getRandomUser = () => { // returning an object
@@ -114,7 +117,7 @@ app.listen(port , () => {
     console.log("Server is Listening to port 8080");
 });
 
-// Index / Home Route
+// Index / Home Route --> Gives the Total number of users 
 app.get("/" ,(req,res) => {
     let q = `SELECT COUNT(*) FROM fakeusers`;
     try {
@@ -132,8 +135,7 @@ app.get("/" ,(req,res) => {
     // res.send("Hi , I'm Groot");
 });
 
-// Show Route
-
+// Show Route --> shows all the users in the database
 app.get('/users' , (req , res) => {
     let q = `SELECT id, username, email FROM fakeusers`;
     try {
@@ -145,8 +147,58 @@ app.get('/users' , (req , res) => {
         })
     } catch (err) {
         console.log(err);
-        res.send(err);
+        res.send("Some Error in DB");
     }
+})
+
+// Edit Route --> Returns a form to Edit Username
+app.get('/users/:id/edit' , (req,res) => {
+    let { id } = req.params;
+    let q = `SELECT * FROM fakeusers WHERE id = '${id}'`;
+    // console.log(id);
+
+    try {
+        connection.query(q , (err ,result) => {
+            if (err) throw err;
+            // console.log(result);
+            // res.send(result);
+            let user = result[0];
+            console.log(user);
+            res.render("edit.ejs" , { user });
+        })
+    } catch (err) {
+        console.log(err);
+        res.send("Some Error in DB");
+    }
+});
+
+// Update (DB) Route --> Updates the actual username in database
+
+app.patch('/users/:id' , (req , res) => { // accquires form data 
+    let { id } = req.params;
+    let {password : formPass, username : newUsername} = req.body;
+    let q = `SELECT * FROM fakeusers WHERE id = '${id}'`; // query to get the user which matches the id
+    
+    try {
+        connection.query(q , (err ,result) => {
+            if (err) throw err; // throw an error if any occured 
+            let user = result[0]; // get user data based on query
+            console.log(user); // To get user data 
+            if (formPass != user.password){ // check if the passwoord entered in form is wrong 
+                res.send("Wrong Password");
+            } else {
+                let q2 = `UPDATE fakeusers SET username = '${newUsername}' WHERE id = '${id}'`;
+                connection.query(q2 , (err , result) => {
+                        if (err) throw err;
+                        res.redirect('/users');
+                })
+            }
+        })
+    } catch (err) {
+        console.log(err);
+        res.send("Some Error in DB");
+    }
+
 })
 
 

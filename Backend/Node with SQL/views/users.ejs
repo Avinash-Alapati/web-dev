@@ -16,7 +16,7 @@
             <th>Id</th>
             <th>Email</th>
             <th>Username</th>
-            
+
         </tr>
 
        <% for (user of result){ %>
@@ -24,6 +24,11 @@
         <td> <%= user.id %></td>
         <td><%= user.email %></td>
         <td><%= user.username %></td>
+        <td>
+        <form method="GET" action="/users/<%= user.id %>/edit">
+            <button>Edit</button>
+        </form>
+        </td>
     </tr>
 <% } %>
     </table>
