@@ -201,6 +201,12 @@ app.patch('/users/:id' , (req , res) => { // accquires form data
 
 })
 
+// Add New Users Route 
+// app.post('/users' ,(req , res) => {
+//     let q = `INSERT INTO Fakeusers (id , username , email, password) VALUES ?`
+//     res.render('add.ejs');
+// })
+
 
 // // we need to close the connection manually
 // connection.end();
