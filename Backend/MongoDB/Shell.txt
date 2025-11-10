@@ -1,0 +1,117 @@
+Microsoft Windows [Version 10.0.22621.4317]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Hp>mongosh
+Current Mongosh Log ID: 6904d04b50dc6d475ccebea3
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.8
+Using MongoDB:          8.2.1
+Using Mongosh:          2.5.8
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2025-10-23T12:05:26.060+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show databases
+admin   40.00 KiB
+config  36.00 KiB
+local   72.00 KiB
+test> show collections
+
+test> use Kiet
+switched to db Kiet
+Kiet> show databases
+admin   40.00 KiB
+config  36.00 KiB
+local   72.00 KiB
+Kiet> db.student.insertOne({name : "Avinash" , Age : 18})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6904d14450dc6d475ccebea4')
+}
+Kiet> show collections
+student
+Kiet> db.student.find()
+[
+  {
+    _id: ObjectId('6904d14450dc6d475ccebea4'),
+    name: 'Avinash',
+    Age: 18
+  }
+]
+Kiet> db.student.insertOne({name : "Sai" , Age : 20})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6904d20550dc6d475ccebea5')
+}
+Kiet> db.student.find()
+[
+  {
+    _id: ObjectId('6904d14450dc6d475ccebea4'),
+    name: 'Avinash',
+    Age: 18
+  },
+  { _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 }
+]
+Kiet> db.student.insertOne({name : "Mahi" , Age : 20 , Coder : true})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6904d22650dc6d475ccebea6')
+}
+Kiet> db.student.find()
+[
+  {
+    _id: ObjectId('6904d14450dc6d475ccebea4'),
+    name: 'Avinash',
+    Age: 18
+  },
+  { _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 },
+  {
+    _id: ObjectId('6904d22650dc6d475ccebea6'),
+    name: 'Mahi',
+    Age: 20,
+    Coder: true
+  }
+]
+Kiet> db.student.insertMany([ {name : "Ashok" , Age : 21} , {name : "Teja" , value : null} ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6904d38c50dc6d475ccebea7'),
+    '1': ObjectId('6904d38c50dc6d475ccebea8')
+  }
+}
+Kiet> db.student.find()
+[
+  {
+    _id: ObjectId('6904d14450dc6d475ccebea4'),
+    name: 'Avinash',
+    Age: 18
+  },
+  { _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 },
+  {
+    _id: ObjectId('6904d22650dc6d475ccebea6'),
+    name: 'Mahi',
+    Age: 20,
+    Coder: true
+  },
+  { _id: ObjectId('6904d38c50dc6d475ccebea7'), name: 'Ashok', Age: 21 },
+  {
+    _id: ObjectId('6904d38c50dc6d475ccebea8'),
+    name: 'Teja',
+    value: null
+  }
+]
+Kiet> db.student.find({name : "Avinash"})
+[
+  {
+    _id: ObjectId('6904d14450dc6d475ccebea4'),
+    name: 'Avinash',
+    Age: 18
+  }
+]
+Kiet> db.student.findOne({Age : 20})
+{ _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 }
+Kiet>
