@@ -245,4 +245,50 @@ Kiet> db.student.find()
     value: true
   }
 ]
+
+Kiet> db.student.insertOne({name : 'Topper' , performance : {marks : 88 , grade : 'A'} , state : 'Andhra Pradesh'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6947fd5706dde10254cebea5')
+}
+Kiet> db.student.find()
+[
+  {
+    _id: ObjectId('6904d14450dc6d475ccebea4'),
+    name: 'Avinash',
+    Age: 18,
+    coder: true,
+    city: 'Tadepalligudem'
+  },
+  { _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 },
+  {
+    _id: ObjectId('6904d22650dc6d475ccebea6'),
+    name: 'Mahi',
+    Age: 20,
+    Coder: true
+  },
+  { _id: ObjectId('6904d38c50dc6d475ccebea7'), name: 'Ashok', Age: 21 },
+  {
+    _id: ObjectId('6904d38c50dc6d475ccebea8'),
+    name: 'Teja',
+    value: true
+  },
+  {
+    _id: ObjectId('6947fd5706dde10254cebea5'),
+    name: 'Topper',
+    performance: { marks: 88, grade: 'A' },
+    state: 'Andhra Pradesh'
+  }
+]
+Kiet> db.student.find({"performace.marks" : 88})
+
+Kiet> db.student.find({"performance.marks" : 88})
+[
+  {
+    _id: ObjectId('6947fd5706dde10254cebea5'),
+    name: 'Topper',
+    performance: { marks: 88, grade: 'A' },
+    state: 'Andhra Pradesh'
+  }
+]
 Kiet>
