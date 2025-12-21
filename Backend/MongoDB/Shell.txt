@@ -213,3 +213,36 @@ Kiet> db.student.find()
     value: true
   }
 ]
+
+Kiet> db.student.updateMany({name : 'Avinash'} , {$set : {coder : true , city : 'Tadepalligudem'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Kiet> db.student.find()
+[
+  {
+    _id: ObjectId('6904d14450dc6d475ccebea4'),
+    name: 'Avinash',
+    Age: 18,
+    coder: true,
+    city: 'Tadepalligudem'
+  },
+  { _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 },
+  {
+    _id: ObjectId('6904d22650dc6d475ccebea6'),
+    name: 'Mahi',
+    Age: 20,
+    Coder: true
+  },
+  { _id: ObjectId('6904d38c50dc6d475ccebea7'), name: 'Ashok', Age: 21 },
+  {
+    _id: ObjectId('6904d38c50dc6d475ccebea8'),
+    name: 'Teja',
+    value: true
+  }
+]
+Kiet>
