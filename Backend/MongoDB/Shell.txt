@@ -114,4 +114,102 @@ Kiet> db.student.find({name : "Avinash"})
 ]
 Kiet> db.student.findOne({Age : 20})
 { _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 }
-Kiet>
+
+kiet> use Kiet
+switched to db Kiet
+Kiet> show collections
+student
+Kiet> db.student.find()
+[
+  {
+    _id: ObjectId('6904d14450dc6d475ccebea4'),
+    name: 'Avinash',
+    Age: 18
+  },
+  { _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 },
+  {
+    _id: ObjectId('6904d22650dc6d475ccebea6'),
+    name: 'Mahi',
+    Age: 20,
+    Coder: true
+  },
+  { _id: ObjectId('6904d38c50dc6d475ccebea7'), name: 'Ashok', Age: 21 },
+  {
+    _id: ObjectId('6904d38c50dc6d475ccebea8'),
+    name: 'Teja',
+    value: null
+  }
+]
+Kiet> db.student.findOne({name : 'Avinash'})
+{ _id: ObjectId('6904d14450dc6d475ccebea4'), name: 'Avinash', Age: 18 }
+Kiet> db.student.findOne({Age : 20})
+{ _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 }
+Kiet> db.student.findOne({value : null})
+{ _id: ObjectId('6904d14450dc6d475ccebea4'), name: 'Avinash', Age: 18 }
+Kiet> db.student.find({value : null})
+[
+  {
+    _id: ObjectId('6904d14450dc6d475ccebea4'),
+    name: 'Avinash',
+    Age: 18
+  },
+  { _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 },
+  {
+    _id: ObjectId('6904d22650dc6d475ccebea6'),
+    name: 'Mahi',
+    Age: 20,
+    Coder: true
+  },
+  { _id: ObjectId('6904d38c50dc6d475ccebea7'), name: 'Ashok', Age: 21 },
+  {
+    _id: ObjectId('6904d38c50dc6d475ccebea8'),
+    name: 'Teja',
+    value: null
+  }
+]
+Kiet> db.student.updateOne({name : 'Teja'} , {$set : {value : true}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Kiet> db.student.find({value : true})
+[
+  {
+    _id: ObjectId('6904d38c50dc6d475ccebea8'),
+    name: 'Teja',
+    value: true
+  }
+]
+Kiet> db.student.updateOne({name : 'Avinash'} , {$set : {coder : false}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Kiet> db.student.find()
+[
+  {
+    _id: ObjectId('6904d14450dc6d475ccebea4'),
+    name: 'Avinash',
+    Age: 18,
+    coder: false
+  },
+  { _id: ObjectId('6904d20550dc6d475ccebea5'), name: 'Sai', Age: 20 },
+  {
+    _id: ObjectId('6904d22650dc6d475ccebea6'),
+    name: 'Mahi',
+    Age: 20,
+    Coder: true
+  },
+  { _id: ObjectId('6904d38c50dc6d475ccebea7'), name: 'Ashok', Age: 21 },
+  {
+    _id: ObjectId('6904d38c50dc6d475ccebea8'),
+    name: 'Teja',
+    value: true
+  }
+]
