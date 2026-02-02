@@ -1,16 +1,14 @@
 // Call Stack
 
-function hello(){
-    console.log("Inside hello Function");
-    console.log("Hello World!");
+function hello() {
+  console.log("Inside hello Function");
+  console.log("Hello World!");
 }
 
-
-function demo(){
-    console.log("Calling Hello Function");
-    hello();
+function demo() {
+  console.log("Calling Hello Function");
+  hello();
 }
-
 
 console.log("Calling Demo Function");
 demo();
@@ -18,23 +16,22 @@ console.log("done! Bye Bye :)");
 
 // visualizing the Call Stack
 
-function one(){
-    return 1;
+function one() {
+  return 1;
 }
 
-function two (){
-    return one() + one();
+function two() {
+  return one() + one();
 }
 
-function three(){
-    let ans = two() + one();
-    console.log(ans);
+function three() {
+  let ans = two() + one();
+  console.log(ans);
 }
 
 // -----------------------------------------------------------------------------
 
 // Single Threaded in JS - Single Threaded Means it can do one work at a time
-
 
 // Synchronous Nature - Executes in a sequence / line by line
 
@@ -47,21 +44,21 @@ function three(){
 // Asynchronous Nature
 
 setTimeout(() => {
-    console.log("Avinash Alapati");
+  console.log("Avinash Alapati");
 }, 2000);
 
 console.log("Hello Line"); // Executes first
 
 setTimeout(() => {
-    console.log("Welcome Google!");
+  console.log("Welcome Google!");
 }, 2000);
-console.log("Helloo User!!")
+console.log("Helloo User!!");
 
 // --------------------------------------------------------------------------------------
 
 // Nested Callbacks --> CallBack Hell
 
-let h1 = document.querySelector('h1');
+let h1 = document.querySelector("h1");
 
 // setTimeout(() => {
 //     h1.style.color = "skyblue";
@@ -96,9 +93,7 @@ let h1 = document.querySelector('h1');
 //     });
 // });
 
-
 // Updating this callback hell using promises  # Line - 245
-
 
 // -------------------------------------------------------------------------------
 
@@ -125,8 +120,7 @@ let h1 = document.querySelector('h1');
 
 // ---------------------------------------------------------------------------------------
 
-
-// Promises - the promise objects represents the eventual completion (or failure) 
+// Promises - the promise objects represents the eventual completion (or failure)
 // of an asynchronous operation and its resulting value
 
 //  a soloution for callback hell - Promises
@@ -143,25 +137,37 @@ let h1 = document.querySelector('h1');
 // }
 
 saveToDb(
-    "Avinash Alapati",
-    () => { // Success Callback
-    console.log("Success : Your Data is Saved");     // on Sucess enter callback =hell
-    saveToDb("Hello Aviii" , () => {    // Callback Hell Initialised
-        console.log("Success 1 : Data Stored")
-        saveToDb("Say Hello!" , () => { // level 1
+  // 1st Param
+  "Avinash Alapati",
+  () => {
+    // Success Callback
+    console.log("Success : Your Data is Saved"); // on Sucess enter callback =hell
+    saveToDb(
+      "Hello Aviii",
+      () => {
+        // Callback Hell Initialised
+        console.log("Success 1 : Data Stored");
+        saveToDb(
+          "Say Hello!",
+          () => {
+            // level 1
             console.log("Success 2 : You data said hello");
-        } , () => {
+          },
+          () => {
             console.log("Failuer 2 : You network is not good");
-        })
-    } , 
-    () => {
-        console.log ("Failure 1 : Network Connection ERROR");
-    })
-    },
-    () => { // Failure Callback
-    console.log("Failure : Weak Connection , data not Saved");
-    }
+          },
+        );
+      },
+      () => {
+        console.log("Failure 1 : Network Connection ERROR");
+      },
     );
+  },
+  () => {
+    // Failure Callback
+    console.log("Failure : Weak Connection , data not Saved");
+  },
+);
 
 // Refactoring with promises
 
@@ -173,17 +179,17 @@ saveToDb(
 
 // Reject - Failure
 
+function saveToDb(data) {
+  // example
+  return new Promise((resolve, reject) => {
+    let internetSpeed = Math.floor(Math.random() * 10 + 1);
 
-function saveToDb(data){    // example
-    return new Promise((resolve , reject) => {
-        let internetSpeed = Math.floor((Math.random() * 10) + 1);
-
-        if (internetSpeed > 4){
-            resolve("Data Saved Sucessfully")
-        } else {
-            reject("Failure : Poor Network!");
-        }
-    })
+    if (internetSpeed > 4) {
+      resolve("Data Saved Sucessfully");
+    } else {
+      reject("Failure : Poor Network!");
+    }
+  });
 }
 
 // Promise States - Pending , Rejected , Fuilfilled
@@ -193,7 +199,6 @@ function saveToDb(data){    // example
 // then() - happens after the promise was fullfilled
 
 // catch() - happens after promise got rejected;
-
 
 // let req= saveToDb("New Request"); // request = promise object
 
@@ -219,65 +224,67 @@ function saveToDb(data){    // example
 //     console.log("Promise was Rejected");
 // })
 
-// Optimised the Callback hell from line 142 - 161 using promises 
+// Optimised the Callback hell from line 142 - 161 using promises
 
-saveToDb("New Request").then((result) => {
+saveToDb("New Request")
+  .then((result) => {
     console.log("Data 1 Saved ");
-    console.log("Result of Promise : " , result);
+    console.log("Result of Promise : ", result);
     return saveToDb("Student Data");
-}).then((result) => {
+  })
+  .then((result) => {
     console.log("data 2 is Saved");
-     console.log("Result of Promise : " , result);
+    console.log("Result of Promise : ", result);
     return saveToDb("Avinash Alapati");
-}).then((result) => {
+  })
+  .then((result) => {
     console.log("Data 3 Saved Sucessfullyyy");
-    console.log("Result of Promise : " , result)
-})
-.catch((error) => {
+    console.log("Result of Promise : ", result);
+  })
+  .catch((error) => {
     console.log("Promise was Rejected");
-    console.log("Error of Promise : " ,error)
-})
+    console.log("Error of Promise : ", error);
+  });
 
 // Promises are rejected and resolved with some data (valid results or error's)
 
 // Applying Promises on changeColor Callback Hell :)
 
-function changeColor(color , delay) {
-   return new Promise((resolve , reject) => {     // ignoring reject coz its not any API call which gets rejected :|
-        setTimeout(() => {
-        h1.style.color = color;
-        resolve("Color Changed Sucessfully!")
+function changeColor(color, delay) {
+  return new Promise((resolve, reject) => {
+    // ignoring reject coz its not any API call which gets rejected :|
+    setTimeout(() => {
+      h1.style.color = color;
+      resolve("Color Changed Sucessfully!");
     }, delay);
-    })
+  });
 }
 
-let requestPromise = changeColor("hotpink" , 2000);
+let requestPromise = changeColor("hotpink", 2000);
 console.log(requestPromise);
 
-changeColor("red" , 1000).then(() => {
+changeColor("red", 1000)
+  .then(() => {
     console.log("Color Changed to red");
-    return changeColor("orange" , 2000);
-})
-.then(() => {
+    return changeColor("orange", 2000);
+  })
+  .then(() => {
     console.log("color changed to orange");
-    return changeColor("green" , 2000);
-})
-.then(() => {
+    return changeColor("green", 2000);
+  })
+  .then(() => {
     console.log("color changed to green");
-    return changeColor("purple" , 2000);
-})
-.then(() => {
+    return changeColor("purple", 2000);
+  })
+  .then(() => {
     console.log("color changed to purple");
-    return changeColor("yellow" , 2000);
-})
-.then(() => {
+    return changeColor("yellow", 2000);
+  })
+  .then(() => {
     console.log("color changed to yellow");
-    return changeColor("skyblue" , 2000);
-})
-.then(() => {
+    return changeColor("skyblue", 2000);
+  })
+  .then(() => {
     console.log("color changed to skyblue");
-    return changeColor("greenyellow" , 2000);
-})
-
-
-
+    return changeColor("greenyellow", 2000);
+  });
