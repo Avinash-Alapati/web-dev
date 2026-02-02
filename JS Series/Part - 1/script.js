@@ -9,7 +9,6 @@
 
 //----------------------------------------------------------------------------
 
-
 // Conditional Statements
 
 // let firstName  = "Avinash";
@@ -27,12 +26,11 @@
 //     console.log("Not Aproved! , You cannot Vote");
 // }
 
-
 // ------------------------------------------------------------------------------------
 
 // Else-if
 
-let totalMarks = 26;  
+let totalMarks = 26;
 
 // prompt("Enter Your Marks: ") - You can Use it as USER Input
 
@@ -58,6 +56,6 @@ let totalMarks = 26;
 
 // alert("Something is fishyy!") // It will PoP-Up an Error in our Page
 
-console.log("Hey Avinash Alapati, How was your Learning!")
-console.error("404 Error - Learnings Not Found")
-console.warn("Still You have Enough time , Start Now!!!")
+console.log("Hey Avinash Alapati, How was your Learning!");
+console.error("404 Error - Learnings Not Found");
+console.warn("Still You have Enough time , Start Now!!!");
