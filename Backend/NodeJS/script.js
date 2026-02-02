@@ -96,17 +96,26 @@ $
 
 // Using Import 
 
-import { sum , Avi } from './math.js';
+// import { sum , Avi } from './math.js';
 
-const result = sum(2,3);
-console.log(result);
+// const result = sum(2,3);
+// console.log(result);
 
-let name = Avi;
-console.log(name)
+// let name = Avi;
+// console.log(name)
 
 
 // --------------------------------------------------------
 
-import {generate} from "random-words";
+// import {generate} from "random-words";
 
-console.log(generate());  
+// console.log(generate());  
+
+// import { sum , multi } from "./math.js"
+
+//  let result = sum(2,3);
+//  let multiplication = multi(2,3);
+
+//  console.log(result,multiplication)
+
+
