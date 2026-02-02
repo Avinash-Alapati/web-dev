@@ -25,15 +25,15 @@ app.listen(port , () => {
 // });
 
 
-// Routing 
+// Routing - GET , POST , PUT , PATCH , DELETE
 
 app.get('/' , (req , res) => {
     res.send("You Have Accessed Root Path");
 });
 
-// app.get('/apple' , (req , res) => {
-//     res.send("You Have Accessed apple Path");
-// });
+app.get('/apple' , (req , res) => {
+    res.send("You Have Accessed apple Path");
+});
 
 // app.get('/orange' , (req , res) => {
 //     res.send("You Have Accessed orange Path");
@@ -55,6 +55,7 @@ app.get('/' , (req , res) => {
 app.get('/:username/:id' , (req , res) => {
     let { username , id } = req.params;
     let htmlStr = `<h1>Welcome user - @${username}</h1>`
+    console.log(`${username} , ${id}`)
     res.send(htmlStr);
 })
 
