@@ -12,7 +12,7 @@ function App() {
       <Title />
       <Description /> */}
 
-      <ProductList />
+      {/* <ProductList /> */}
       <ProductList />
     </>
   );
