@@ -1,7 +1,9 @@
 import "./App.css";
 import Title from "./Title";
 import { Description } from "./Description";
+import MsgBox from "./MsgBox";
 import ProductList from "./ProductList";
+
 // Our First Component
 
 function App() {
@@ -13,7 +15,9 @@ function App() {
       <Description /> */}
 
       {/* <ProductList /> */}
+      <MsgBox userName="Sriluuuu" textColor="blue"/>
       <ProductList />
+
     </>
   );
 }
