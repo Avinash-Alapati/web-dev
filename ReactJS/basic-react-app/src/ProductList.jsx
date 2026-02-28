@@ -7,9 +7,9 @@ function ProductList() {
   return (
     <>
       <div className="ProductList">
-        <Product title="IPhone" price="95k" />
+        <Product title="Realme 9i" price="15000" />
         <Product title="MacBook Air 3" price={85000} />
-        {/* <Product title="IWatch" price="35k" features = {["Technology", "Durable", "Faster"]} features1 = {options1}/> */}
+        <Product title="IWatch" price="35000"/>
       </div>
     </>
   );
