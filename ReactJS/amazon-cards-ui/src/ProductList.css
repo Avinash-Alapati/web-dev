@@ -1,0 +1,8 @@
+.ProductList{
+    margin-bottom: 7px;
+}
+
+.PL{
+    display: flex;
+    flex-wrap: wrap;
+}
